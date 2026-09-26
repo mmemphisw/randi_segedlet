@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123A63">
+  <meta name="format-detection" content="telephone=no">
+  <title>Segíts nekünk még jobbá válni!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+:root{
+      --blue:#075fca;--blue2:#2c8cff;--navy:#10243d;--soft:#eef6ff;--white:#fff;
+      --muted:#66778b;--line:#dbe8f6;--green:#12935f;--shadow:0 28px 80px rgba(25,67,118,.18);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Montserrat",sans-serif;color:var(--navy);min-height:100vh;overflow-x:hidden;
+      background:#123A63}
+    body:before,body:after{display:none}
+    body:before{width:330px;height:330px;right:-150px;top:-110px;background:linear-gradient(135deg,rgba(7,95,202,.22),rgba(44,140,255,.04))}
+    body:after{width:270px;height:270px;left:-120px;bottom:-100px;background:linear-gradient(135deg,rgba(44,140,255,.16),rgba(7,95,202,.03))}
+    .shell{width:min(920px,calc(100% - 28px));margin:auto;padding:24px 0 42px}
+    .meta{display:flex;justify-content:flex-end;margin-bottom:14px}.pill{font-size:13px;font-weight:700;color:#48627d;background:rgba(255,255,255,.76);border:1px solid rgba(219,232,246,.95);padding:10px 14px;border-radius:999px;backdrop-filter:blur(14px)}
+    .progress{display:none;background:rgba(255,255,255,.8);border:1px solid rgba(219,232,246,.95);border-radius:18px;padding:13px 15px;margin-bottom:14px;backdrop-filter:blur(14px)}
+    .progress.show{display:block}.progress-row{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px}.track{height:9px;border-radius:99px;background:#e5edf7;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),#53a8ff);border-radius:99px;transition:.35s}
+    .card{position:relative;overflow:hidden;background:rgba(255,255,255,.93);border:1px solid rgba(255,255,255,.98);border-radius:30px;box-shadow:var(--shadow);min-height:610px;padding:44px;display:flex;flex-direction:column;justify-content:space-between;backdrop-filter:blur(18px);animation:enter .35s ease}
+    .card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-110px;top:-120px;background:linear-gradient(145deg,rgba(44,140,255,.18),rgba(7,95,202,.02))}
+    @keyframes enter{from{opacity:0;transform:translateY(10px) scale(.995)}to{opacity:1;transform:none}}
+    .eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);font-weight:900;margin-bottom:16px}
+    h1,h2,p{margin-top:0} h1{font-size:clamp(34px,6vw,58px);line-height:1.03;letter-spacing:-.035em;margin-bottom:20px}h2{font-size:clamp(25px,4vw,39px);line-height:1.18;letter-spacing:-.025em;margin-bottom:13px;max-width:760px}
+    .lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:730px}.helper{font-size:14px;line-height:1.6;color:var(--muted)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:30px}.feature{padding:19px 17px;border-radius:19px;background:linear-gradient(145deg,#f4f9ff,#eaf4ff);border:1px solid #d9eaff;font-weight:750;color:#164f8e;line-height:1.45}.feature b{font-size:21px;display:block;margin-bottom:7px}
+    .options{display:grid;gap:11px;margin-top:26px}.option{display:flex;align-items:center;gap:12px;padding:15px 17px;border-radius:16px;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-weight:650;transition:.18s}.option:hover{border-color:#91c1f8;transform:translateY(-1px)}.option.selected{border-color:var(--blue);background:var(--soft);color:#064c9d;box-shadow:0 8px 22px rgba(7,95,202,.08)}
+    .mark{width:21px;height:21px;flex:none;border:2px solid #aabdd2;display:grid;place-items:center}.radio{border-radius:50%}.check{border-radius:6px}.selected .mark{border-color:var(--blue);background:var(--blue)}.selected .radio:after{content:"";width:7px;height:7px;background:#fff;border-radius:50%}.selected .check:after{content:"✓";color:#fff;font-size:13px;font-weight:900}
+    .scale-wrap{margin-top:28px}.scale-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:650;margin-bottom:10px}.scale{display:grid;grid-template-columns:repeat(10,1fr);gap:9px}.scale button{aspect-ratio:1;border:1.5px solid var(--line);background:#fff;border-radius:13px;color:var(--navy);font:800 16px Montserrat;cursor:pointer;transition:.18s}.scale button:hover{transform:translateY(-2px);border-color:#8dbff6}.scale button.selected{background:linear-gradient(145deg,var(--blue),var(--blue2));color:#fff;border-color:var(--blue);box-shadow:0 10px 24px rgba(7,95,202,.22)}
+    .na{margin-top:15px}.text{width:100%;min-height:150px;margin-top:24px;border:1.5px solid var(--line);border-radius:17px;padding:16px;font:500 15px Montserrat;resize:vertical;outline:none;background:#fbfdff}.text:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(7,95,202,.08);background:#fff}
+    .actions{display:flex;justify-content:space-between;gap:12px;margin-top:34px}.btn{border:0;border-radius:15px;padding:15px 22px;font:800 14px Montserrat;cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-1px)}.primary{color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 12px 28px rgba(7,95,202,.24)}.secondary{background:#edf3f9;color:#435d78}.btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+    .thanks{text-align:center;max-width:710px;margin:auto}.thanks-icon{font-size:66px;margin-bottom:15px}.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.review{display:block;text-decoration:none;padding:18px;border-radius:17px;font-weight:850;transition:.18s}.review:hover{transform:translateY(-2px)}.google{background:#fff;color:#23364b;border:1.5px solid var(--line)}.facebook{background:#1877f2;color:#fff;border:1.5px solid #1877f2}.saved{margin:22px auto 0;padding:14px 16px;border-radius:15px;background:#eaf8f1;border:1px solid #c6ead8;color:#126942;font-weight:700;font-size:14px}.cross-card{margin-top:30px;padding:24px;border-radius:22px;background:linear-gradient(145deg,#fff7f7,#fff);border:1px solid #f0d6d9;text-align:center;box-shadow:0 14px 38px rgba(112,16,28,.08)}.cross-card h3{margin:0 0 10px;font-size:22px}.cross-card p{margin:0 0 17px;color:var(--muted);line-height:1.65}.brigad-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;background:linear-gradient(135deg,#8d1b2b,#c62d42);color:#fff;padding:15px 20px;border-radius:14px;font-weight:850;box-shadow:0 12px 26px rgba(141,27,43,.22);transition:.18s}.brigad-btn:hover{transform:translateY(-2px)}.fine{font-size:12px;line-height:1.6;color:#7a8999;margin-top:16px}
+    @media(max-width:700px){.shell{width:min(100% - 18px,920px);padding-top:12px}.meta{margin-bottom:10px}.pill{font-size:11px}.card{min-height:665px;padding:29px 20px;border-radius:23px}.features{grid-template-columns:1fr}.feature{padding:15px}.scale{grid-template-columns:repeat(5,1fr)}.actions{position:sticky;bottom:7px;padding-top:25px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.96) 38%)}.btn{flex:1}.review-grid{grid-template-columns:1fr}.lead{font-size:16px}}
+  
+
+/* v6 mobile-first finomhangolás */
+button, a, .option { -webkit-tap-highlight-color: transparent; }
+button, .option { touch-action: manipulation; }
+body { min-height: 100svh; }
+.shell { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+.card { min-height: min(720px, calc(100svh - 105px)); }
+.option { min-height: 54px; }
+.btn { min-height: 50px; }
+.scale button { min-width: 44px; min-height: 44px; }
+.brigad-btn { justify-content: center; text-align: center; }
+@media (max-width:700px){
+  body { background-attachment: fixed; }
+  .shell { width: min(100% - 14px, 920px); padding-top: max(8px, env(safe-area-inset-top)); padding-bottom: max(18px, env(safe-area-inset-bottom)); }
+  .meta { justify-content:center; }
+  .progress { position: sticky; top: max(4px, env(safe-area-inset-top)); z-index: 20; box-shadow: 0 8px 24px rgba(25,67,118,.08); }
+  .card { min-height: calc(100svh - 95px); padding: 26px 16px 18px; border-radius: 21px; }
+  h1 { font-size: clamp(31px, 10vw, 44px); }
+  h2 { font-size: clamp(23px, 7vw, 31px); }
+  .eyebrow { margin-bottom: 12px; }
+  .options { margin-top: 20px; gap: 9px; }
+  .option { padding: 14px; border-radius: 15px; line-height: 1.4; }
+  .scale-wrap { margin-top: 22px; }
+  .scale-labels { gap: 12px; line-height: 1.35; }
+  .scale { grid-template-columns: repeat(5, minmax(44px, 1fr)); gap: 8px; }
+  .scale button { aspect-ratio: auto; height: 48px; border-radius: 12px; }
+  .actions { z-index: 10; bottom: calc(4px + env(safe-area-inset-bottom)); margin-top: 22px; padding-bottom: env(safe-area-inset-bottom); }
+  .btn { padding: 14px 12px; }
+  .review, .brigad-btn { width: 100%; min-height: 52px; display:flex; align-items:center; justify-content:center; }
+  .cross-card { padding: 20px 16px; }
+}
+@media (max-width:370px){
+  .card { padding-left: 13px; padding-right: 13px; }
+  .scale { gap: 6px; }
+  .scale button { min-width: 42px; }
+  .btn { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+</style>
+
+<style id="info-card-enhancement">
+.info-card,.feature-card,.hero-stat,.benefit-card,.intro-badge{
+background:#fff!important;
+border:2px solid #D5E5F7!important;
+border-radius:18px!important;
+box-shadow:0 8px 24px rgba(12,45,90,.12),0 2px 6px rgba(12,45,90,.08)!important;
+padding:18px!important;
+transition:all .25s ease!important;
+}
+.info-card:hover,.feature-card:hover,.hero-stat:hover,.benefit-card:hover,.intro-badge:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(12,45,90,.18),0 4px 10px rgba(12,45,90,.10)!important;
+}
+</style>
+
+</head>
+<body>
+<div class="shell">
+  <div class="meta"><div class="pill">⏱️ Kitöltési idő: kb. 2–3 perc</div></div>
+  <div class="progress" id="progress"><div class="progress-row"><span id="count"></span><span id="percent"></span></div><div class="track"><div class="bar" id="bar"></div></div></div>
+  <main class="card" id="card" aria-live="polite"></main>
+</div>
+<script>
+const GOOGLE_REVIEW_URL='https://g.page/r/Cel-7zN7tgYBEAE/review';
+const FACEBOOK_REVIEW_URL='https://www.facebook.com/dekorosmuvek/reviews';
+const BRIGAD_POLO_URL='https://www.brigadpolo.hu';
+const GOOGLE_SHEETS_WEB_APP_URL=''; // Google Apps Script webalkalmazás URL-je kerül ide.
+
+const questions=[
+{id:'source',icon:'🔎',type:'single',title:'Honnan hallott először a Dekoros Művekről?',options:['Google','Google hirdetés','Facebook','Facebook hirdetés','Instagram','Ismerős vagy üzleti partner ajánlotta','Láttam egy általunk dekorált járművet','Láttam egy kihelyezett reklámjukat a városban vagy máshol','Elhaladtam a telephely előtt','Egyéb']},
+{id:'research',icon:'👀',type:'multi',max:3,title:'Mielőtt felvette velünk a kapcsolatot, hol tájékozódott rólunk?',helper:'Több válasz is megjelölhető.',options:['Weboldalunkon','Google értékeléseknél','Facebook oldalunkon','Referenciamunkáink között','Ismerőstől vagy partnertől kérdeztem','Nem néztem utána','Egyéb']},
+{id:'choice',icon:'🎯',type:'multi',max:3,title:'Mi győzte meg leginkább arról, hogy minket válasszon?',helper:'Legfeljebb 3 választ jelöljön meg.',options:['Ajánlás','Jó értékelések','Referenciamunkáink','Minőség','Ár','Ár-érték arány','Gyorsaság','Segítőkész kommunikáció','Weboldalunk vagy közösségi oldalunk','Közeli telephely','Szolgáltatásaink széles köre','Egyéb']},
+{id:'contact',icon:'📞',type:'single',title:'Milyen formában vette fel velünk először a kapcsolatot?',options:['Weboldal','Telefon','E-mail','Facebook','Instagram','Személyesen','Egyéb']},
+{id:'first_contact',icon:'👋',type:'scale',title:'Mennyire volt elégedett az első kapcsolatfelvétellel?'},
+{id:'helpfulness',icon:'😊',type:'scale',title:'Mennyire volt elégedett kollégánk segítőkészségével és hozzáállásával?'},
+{id:'communication_speed',icon:'💬',type:'scale',title:'Mennyire volt elégedett a kommunikáció gyorsaságával?'},
+{id:'quote_speed',icon:'⚡',type:'scale_na',title:'Mennyire volt elégedett az árajánlat elkészítésének gyorsaságával?',na:'Nem kértem árajánlatot'},
+{id:'quote_clarity',icon:'📄',type:'scale_na',title:'Mennyire volt érthető és átlátható az árajánlat?',na:'Nem kaptam árajánlatot'},
+{id:'design',icon:'🎨',type:'scale_na',title:'Mennyire volt elégedett a grafikai tervekkel és a módosítások kezelésével?',na:'Nem kértem grafikai tervezést'},
+{id:'value',icon:'💎',type:'scale',title:'Mennyire volt elégedett az ár-érték aránnyal?'},
+{id:'scheduling',icon:'📅',type:'scale_na',title:'Mennyire volt gördülékeny az időpontegyeztetés?',na:'Nem volt szükség időpontegyeztetésre'},
+{id:'arrival',icon:'📍',type:'scale_na',title:'Mennyire volt elégedett a telephelyünkre érkezés élményével?',helper:'Megközelíthetőség, parkolás, tájékozódás és fogadtatás.',na:'Nem jártam személyesen a telephelyen'},
+{id:'waiting',icon:'☕',type:'scale_na',title:'Mennyire volt kényelmes a várakozás?',na:'Nem kellett várakoznom'},
+{id:'quality',icon:'✨',type:'scale',title:'Mennyire volt elégedett az elkészült munka minőségével?'},
+{id:'importance',icon:'💙',type:'scale',title:'Mennyire érezte úgy, hogy projektje valóban fontos volt számunkra?'},
+{id:'solution',icon:'🧩',type:'scale',title:'Mennyire érezte úgy, hogy kollégáink valóban az Ön igényeire keresték a legjobb megoldást?'},
+{id:'overall',icon:'🏁',type:'scale',title:'Összességében mennyire volt elégedett a teljes ügyintézési folyamattal?'},
+{id:'nps',icon:'⭐',type:'nps',title:'Mennyire valószínű, hogy ajánlaná a Dekoros Műveket ismerőseinek?'},
+{id:'best',icon:'🏆',type:'multi',max:3,title:'Mi tetszett Önnek a legjobban?',helper:'Legfeljebb 3 választ jelöljön meg.',options:['Gyors kommunikáció','Kedves ügyintézés','Grafikai tervezés','Gyors kivitelezés','Minőségi munka','Ár-érték arány','Rugalmasság','Pontos határidők','Telephely megközelíthetősége','Parkolás','Egyéb']},
+{id:'improve',icon:'💡',type:'text_optional',title:'Volt olyan pont a folyamat során, ahol úgy érezte, hogy javíthatnánk?',helper:'Ez a kérdés nem kötelező.'}
+];
+let step=-1; const answers={}; const startedAt=Date.now();
+const card=document.getElementById('card'),progress=document.getElementById('progress'),bar=document.getElementById('bar'),count=document.getElementById('count'),percent=document.getElementById('percent');
+function intro(){progress.classList.remove('show');card.innerHTML=`<div><div class="eyebrow">Ügyfélélmény-felmérés</div><h1>Segítsen nekünk még jobbá válni! 💙</h1><p class="lead">Kíváncsiak vagyunk, hogyan élte meg a teljes folyamatot az első kapcsolatfelvételtől egészen az elkészült munka átvételéig.</p><div class="features"><div class="feature"><b>⏱️</b>Mindössze 2–3 perc</div><div class="feature"><b>📊</b>Válaszai valódi fejlesztéseket segítenek</div><div class="feature"><b>🤝</b>Minden visszajelzést értékelünk</div></div></div><div class="actions"><span></span><button class="btn primary" onclick="next()">Kezdjük!</button></div>`}
+function progressUpdate(){progress.classList.add('show');const n=step+1,p=Math.round(n/questions.length*100);count.textContent=`${n} / ${questions.length} kérdés`;percent.textContent=`${p}%`;bar.style.width=p+'%'}
+function render(){progressUpdate();const q=questions[step];let body=`<div><div class="eyebrow">${q.icon} ${step+1}. kérdés</div><h2>${q.title}</h2>${q.helper?`<p class="helper">${q.helper}</p>`:''}`;
+if(q.type==='single'||q.type==='multi'){body+=`<div class="options">`+q.options.map(o=>`<div class="option ${(answers[q.id]||[]).includes?.(o)||answers[q.id]===o?'selected':''}" onclick="pick('${esc(q.id)}','${esc(o)}','${q.type}',${q.max||0})"><span class="mark ${q.type==='single'?'radio':'check'}"></span><span>${o}</span></div>`).join('')+`</div>`}
+if(q.type==='scale'||q.type==='scale_na'||q.type==='nps'){const min=q.type==='nps'?0:1,max=10;body+=`<div class="scale-wrap"><div class="scale-labels"><span>${min} – egyáltalán nem</span><span>10 – maximálisan</span></div><div class="scale">`;for(let i=min;i<=max;i++)body+=`<button class="${answers[q.id]===i?'selected':''}" onclick="rate('${q.id}',${i})">${i}</button>`;body+=`</div>`;if(q.type==='scale_na')body+=`<div class="na option ${answers[q.id]===q.na?'selected':''}" onclick="naPick('${q.id}','${esc(q.na)}')"><span class="mark radio"></span><span>${q.na}</span></div>`}
+if(q.type==='text_optional')body+=`<textarea class="text" id="textAnswer" placeholder="Írja le röviden, mire gondol…">${answers[q.id]||''}</textarea>`;body+=`</div><div class="actions"><button class="btn secondary" onclick="back()">Vissza</button><button class="btn primary" id="nextBtn" onclick="next()">${step===questions.length-1?'Küldés':'Tovább'}</button></div>`;card.innerHTML=body;validate()}
+function esc(s){return String(s).replaceAll('\\','\\\\').replaceAll("'","\\'")}
+function pick(id,opt,type,max){if(type==='single')answers[id]=opt;else{let a=answers[id]||[];a=a.includes(opt)?a.filter(x=>x!==opt):(max&&a.length>=max?a:[...a,opt]);answers[id]=a}render()}
+function rate(id,n){answers[id]=n;render()}function naPick(id,v){answers[id]=v;render()}
+function validate(){const q=questions[step],btn=document.getElementById('nextBtn');if(!btn)return;const optional=q.type==='text_optional';const a=answers[q.id];btn.disabled=!optional&&(a===undefined||(Array.isArray(a)&&a.length===0))}
+function next(){if(step>=0&&questions[step]?.type==='text_optional')answers[questions[step].id]=document.getElementById('textAnswer')?.value.trim()||'';if(step<questions.length-1){step++;render()}else submit()}
+function back(){if(step===0){step=-1;intro()}else{if(questions[step]?.type==='text_optional')answers[questions[step].id]=document.getElementById('textAnswer')?.value.trim()||'';step--;render()}}
+async function submit(){const payload={submitted_at:new Date().toISOString(),duration_seconds:Math.round((Date.now()-startedAt)/1000),page_url:location.href,user_agent:navigator.userAgent,...answers};localStorage.setItem('dekoros_muvek_utolso_kitoltes',JSON.stringify(payload));let savedRemote=false;if(GOOGLE_SHEETS_WEB_APP_URL){try{await fetch(GOOGLE_SHEETS_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});savedRemote=true}catch(e){console.error(e)}}showThanks(savedRemote)}
+function showThanks(savedRemote){progress.classList.remove('show');card.innerHTML=`<div class="thanks"><div class="thanks-icon">🎉</div><div class="eyebrow">Köszönjük!</div><h1>Igazán sokat segített!</h1><p class="lead">Köszönjük, hogy időt szánt ránk. Válaszai alapján még jobb szolgáltatást tudunk nyújtani.</p><div class="saved">✅ Válaszai rögzítésre kerültek${savedRemote?' a központi táblázatban.':'.'}</div><h2 style="font-size:24px;margin-top:32px">⭐ Elégedett volt velünk?</h2><p class="helper">Ha igen, ossza meg másokkal is a tapasztalatát! Egy rövid értékeléssel Ön is segíthet a leendő ügyfeleknek a döntésben. Köszönjük! 💙</p><div class="review-grid"><a class="review google" target="_blank" rel="noopener" href="${GOOGLE_REVIEW_URL}">⭐ Google értékelés írása</a><a class="review facebook" target="_blank" rel="noopener" href="${FACEBOOK_REVIEW_URL}">👍 Facebook értékelés írása</a></div><div class="cross-card"><h3>👕 Van már emblémázott munkaruhája?</h3><p>A Brigád Póló a Dekoros Művek testvérmárkája, ahol egyedi emblémázott pólókat, pulóvereket, kabátokat, sapkákat és munkaruhákat készítünk vállalkozások számára.</p><a class="brigad-btn" target="_blank" rel="noopener" href="${BRIGAD_POLO_URL}">MEGNÉZEM A BRIGÁD PÓLÓ TERMÉKEIT</a></div><p class="fine">A Google Táblázatba történő központi mentéshez a HTML-ben a GOOGLE_SHEETS_WEB_APP_URL mezőbe kell beilleszteni a Google Apps Script webalkalmazás linkjét.</p></div>`}
+intro();
+
+</script>
+</body>
+</html>
